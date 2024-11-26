@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .actions {
+            display: flex;
+            justify-content: space-around;
+            gap: 10px;
+        }
+        .actions a, .actions form {
+            display: inline-block;
+        }
+        .debug-info {
+            color: gray;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <a href="{{ url_for('logout') }}"><button>Logout</button></a>
+    <a href="{{ url_for('upload_file') }}"><button>Upload File</button></a>
+    <h2>Your Files</h2>
+    <table>
+        <tr>
+            <th>Filename</th>
+            <th>Actions</th>
+        </tr>
+        {% if files %}
+        {% for file in files %}
+        <tr>
+            <td>
+                {{ file.filename }}
+                <!-- Debugging: Display file ID -->
+                <div class="debug-info">File ID: {{ file.id }}</div>
+            </td>
+            <td class="actions">
+                <!-- Download Button -->
+                <a href="{{ url_for('download_file', file_id=file.id) }}">
+                    <button>Download</button>
+                </a>
+                
+                <!-- View Button -->
+                <a href="{{ url_for('view_file', file_id=file.id) }}">
+                    <button>View</button>
+                </a>
+
+                <!-- Delete Button -->
+                <form action="{{ url_for('delete_file', file_id=file.id) }}" method="POST" style="display:inline;">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"> <!-- CSRF Token -->
+                    <button type="submit">Delete</button>
+                </form>
+
+                <!-- Debugging: Display URLs -->
+                <div class="debug-info">
+                    <p>Download URL: {{ url_for('download_file', file_id=file.id) }}</p>
+                    <p>View URL: {{ url_for('view_file', file_id=file.id) }}</p>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="2">No files uploaded yet.</td>
+        </tr>
+        {% endif %}
+    </table>
+</body>
+</html>
