@@ -54,6 +54,8 @@
 <body>
     <div class="upload-container">
         <h1>Upload File</h1>
+
+        <!-- Flash messages for feedback -->
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
         <div class="error-message">
@@ -63,6 +65,8 @@
         </div>
         {% endif %}
         {% endwith %}
+
+        <!-- Upload Form -->
         <form method="POST" action="{{ url_for('upload_file') }}" enctype="multipart/form-data">
             {{ form.hidden_tag() }}
             {{ form.file.label }}
@@ -72,3 +76,4 @@
     </div>
 </body>
 </html>
+

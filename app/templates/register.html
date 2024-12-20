@@ -48,23 +48,43 @@
         button:hover {
             background-color: #218838;
         }
-        .error-message, .success-message {
+        .message-container {
+            margin-bottom: 15px;
+        }
+        .error-message {
             color: red;
             text-align: center;
-            margin-bottom: 15px;
         }
         .success-message {
             color: green;
+            text-align: center;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .login-link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        .password-hint {
+            font-size: 12px;
+            color: #888;
+            margin-top: -10px;
         }
     </style>
 </head>
 <body>
     <div class="register-container">
         <h1>Register</h1>
-        <!-- Flash messages for errors and success -->
+        
+        <!-- Flash messages for feedback -->
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
-        <div>
+        <div class="message-container">
             {% for category, message in messages %}
                 <div class="{{ 'error-message' if category == 'danger' else 'success-message' }}">
                     {{ message }}
@@ -73,14 +93,26 @@
         </div>
         {% endif %}
         {% endwith %}
-        
+
         <!-- Registration Form -->
         <form method="POST" action="{{ url_for('register') }}">
-            {{ form.hidden_tag() }}  <!-- CSRF Token (Flask-WTF) -->
-            <input type="text" name="username" placeholder="Username" required>
+            {{ form.hidden_tag() }} <!-- CSRF Token for Flask-WTF -->
+            
+            <!-- Form Inputs -->
+            <input type="text" name="username" placeholder="Username" value="{{ form.username.data }}" required>
             <input type="password" name="password" placeholder="Password" required>
+            
+            <!-- Password Constraints Hint -->
+            <div class="password-hint">Password must be at least 6 characters long.</div>
+            
             <button type="submit">Register</button>
         </form>
+
+        <!-- Register Link -->
+        <div class="login-link">
+            <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+        </div>
     </div>
 </body>
 </html>
+

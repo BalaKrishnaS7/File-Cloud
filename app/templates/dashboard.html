@@ -42,10 +42,6 @@
         .actions a, .actions form {
             display: inline-block;
         }
-        .debug-info {
-            color: gray;
-            font-size: 12px;
-        }
     </style>
 </head>
 <body>
@@ -58,44 +54,24 @@
             <th>Filename</th>
             <th>Actions</th>
         </tr>
-        {% if files %}
         {% for file in files %}
         <tr>
-            <td>
-                {{ file.filename }}
-                <!-- Debugging: Display file ID -->
-                <div class="debug-info">File ID: {{ file.id }}</div>
-            </td>
+            <td>{{ file.filename }}</td>
             <td class="actions">
-                <!-- Download Button -->
                 <a href="{{ url_for('download_file', file_id=file.id) }}">
                     <button>Download</button>
                 </a>
-                
-                <!-- View Button -->
                 <a href="{{ url_for('view_file', file_id=file.id) }}">
                     <button>View</button>
                 </a>
-
-                <!-- Delete Button -->
                 <form action="{{ url_for('delete_file', file_id=file.id) }}" method="POST" style="display:inline;">
                     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"> <!-- CSRF Token -->
                     <button type="submit">Delete</button>
                 </form>
-
-                <!-- Debugging: Display URLs -->
-                <div class="debug-info">
-                    <p>Download URL: {{ url_for('download_file', file_id=file.id) }}</p>
-                    <p>View URL: {{ url_for('view_file', file_id=file.id) }}</p>
-                </div>
             </td>
         </tr>
         {% endfor %}
-        {% else %}
-        <tr>
-            <td colspan="2">No files uploaded yet.</td>
-        </tr>
-        {% endif %}
     </table>
 </body>
 </html>
+
