@@ -58,7 +58,7 @@ Copy code
 ## Usage
   1. Access the application locally:
      ```bash
-    http://127.0.0.1:5000
+     http://127.0.0.1:5000
   1. using ngrok:
       ````bash
       https://<ngrok-generated-url>
