@@ -51,23 +51,23 @@ Copy code
 6. Run the application:
     ```bash
     python run.py
-7.Start ngrok to make the application accessible online:
+7. Start ngrok to make the application accessible online:
     ```bash
     ngrok http 5000
 
 ## Usage
- 1. Access the application locally:
-    ```bash
+  1. Access the application locally:
+     ```bash
     http://127.0.0.1:5000
- or using ngrok:
-    ```bash
-    https://<ngrok-generated-url>
- 2. Register: Create a user account.
- 3. Log in: Access your dashboard.
- 4. Manage files:
-     Upload: Add files to your private directory.
-     Download: Retrieve uploaded files.
-     Delete: Remove unwanted files.
+  1. using ngrok:
+      ````bash
+      https://<ngrok-generated-url>
+  2. Register: Create a user account.
+  3. Log in: Access your dashboard.
+  4. Manage files:
+      1. Upload: Add files to your private directory.
+      2. Download: Retrieve uploaded files.
+      3. Delete: Remove unwanted files.
 
 
 ## Technologies Used
@@ -80,15 +80,3 @@ Copy code
    This project is licensed under the MIT License.    
 
 
----
-
-### Next Steps
-1. Add any relevant screenshots in the repository and update their links in the **Screenshots** section.
-2. Commit this updated README to your GitHub repository:
-   ```bash
-   git add README.md
-   git commit -m "Updated README with detailed project info"
-   git push origin main
-
-
-  
