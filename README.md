@@ -35,3 +35,60 @@ Copy code
 1. Clone the repository:
    ```bash
    git clone https://github.com/BalaKrishnaS7/file-cloud.git
+2. Navigate to the Project Directory:
+   ```bash
+   cd file-cloud
+3. Set up a virtual environment:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # On Linux/Mac
+4. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+5. Initialize the database:
+   ```bash
+   python init_db.py
+6. Run the application:
+    ```bash
+    python run.py
+7.Start ngrok to make the application accessible online:
+    ```bash
+    ngrok http 5000
+
+## Usage
+ 1. Access the application locally:
+    ```bash
+    http://127.0.0.1:5000
+ or using ngrok:
+    ```bash
+    https://<ngrok-generated-url>
+ 2. Register: Create a user account.
+ 3. Log in: Access your dashboard.
+ 4. Manage files:
+     Upload: Add files to your private directory.
+     Download: Retrieve uploaded files.
+     Delete: Remove unwanted files.
+
+
+## Technologies Used
+  1. Python: Backend logic using Flask.
+  2. HTML/CSS: Frontend for user interface.
+  3. SQLite: Lightweight database for user and file storage.
+  4. ngrok: Remote access via secure tunnels.
+
+ ## License
+   This project is licensed under the MIT License.    
+
+
+---
+
+### Next Steps
+1. Add any relevant screenshots in the repository and update their links in the **Screenshots** section.
+2. Commit this updated README to your GitHub repository:
+   ```bash
+   git add README.md
+   git commit -m "Updated README with detailed project info"
+   git push origin main
+
+
+  
