@@ -43,8 +43,11 @@ Copy code
    python3 -m venv venv
    source venv/bin/activate  # On Linux/Mac
 4. Install dependencies:
+   Run the following commands to install required dependencies:
    ```bash
-   pip install -r requirements.txt
+   pip install flask
+   pip install flask-wtf
+   pip install flask-sqlalchemy
 5. Initialize the database:
    ```bash
    python init_db.py
