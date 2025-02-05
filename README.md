@@ -73,6 +73,8 @@ Copy code
       3. Delete: Remove unwanted files.
 
 ![home img](https://github.com/BalaKrishnaS7/File-Cloud/blob/main/home.png)
+
+![dashboard](https://github.com/BalaKrishnaS7/File-Cloud/blob/main/dashboard.png)
 ## Technologies Used
   1. Python: Backend logic using Flask.
   2. HTML/CSS: Frontend for user interface.
