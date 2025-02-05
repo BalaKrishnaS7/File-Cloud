@@ -55,7 +55,7 @@ Copy code
     ```bash
     python run.py
 7. Start ngrok to make the application accessible online:
-    ```bash
+     ```bash
     ngrok http 5000
 
 ## Usage
@@ -72,8 +72,12 @@ Copy code
       2. Download: Retrieve uploaded files.
       3. Delete: Remove unwanted files.
 
+## Preview of website
+ 1.Home page
 ![home img](https://github.com/BalaKrishnaS7/File-Cloud/blob/main/home.png)
 
+
+2. Dashboard page
 ![dashboard](https://github.com/BalaKrishnaS7/File-Cloud/blob/main/dashboard.png)
 ## Technologies Used
   1. Python: Backend logic using Flask.
