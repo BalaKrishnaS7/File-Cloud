@@ -5,7 +5,9 @@
 **File-Cloud** is a lightweight, self-hosted cloud platform created using Flask. This project enables secure file management with user authentication, file upload, download, and deletion features. Designed to run on a spare laptop, it offers an efficient and private alternative to third-party cloud services, with remote access made possible using **ngrok**.
 
 ## Project Structure
+```
 ├── pycache/ # Compiled Python files ├── app/ # Application logic (routes, templates, forms, etc.) ├── instance/ # Configuration and instance-specific data ├── migrations/ # Database migration files ├── uploads/ # User-uploaded files ├── README.md # Project documentation ├── init_db.py # Script to initialize the database ├── run.py # Main script to run the Flask application
+```
 
 markdown
 Copy code
