@@ -6,7 +6,14 @@
 
 ## Project Structure
 ```
-├── pycache/ # Compiled Python files ├── app/ # Application logic (routes, templates, forms, etc.) ├── instance/ # Configuration and instance-specific data ├── migrations/ # Database migration files ├── uploads/ # User-uploaded files ├── README.md # Project documentation ├── init_db.py # Script to initialize the database ├── run.py # Main script to run the Flask application
+├── pycache/ # Compiled Python files
+├── app/ # Application logic (routes, templates, forms, etc.)
+├── instance/ # Configuration and instance-specific data
+├── migrations/ # Database migration files
+├── uploads/ # User-uploaded files
+├── README.md # Project documentation
+├── init_db.py # Script to initialize the database
+├── run.py # Main script to run the Flask application
 ```
 
 markdown
