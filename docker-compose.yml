@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  file-cloud:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: file-cloud-app
+    ports:
+      - "5000:5000"
+    volumes:
+      # Mount uploads directory to persist files
+      - ./uploads:/app/uploads
+      # Mount database to persist data
+      - ./instance:/app/instance
+      # Mount app code for development (optional - remove for production)
+      - .:/app
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  uploads:
+  database:

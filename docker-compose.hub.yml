@@ -1,0 +1,40 @@
+version: '3.8'
+
+# Docker Compose file for deploying File-Cloud from Docker Hub
+# Replace 'YOUR_DOCKERHUB_USERNAME' with your actual Docker Hub username
+
+services:
+  file-cloud:
+    # Use your published image from Docker Hub
+    image: balakrishnas7/file-cloud:v1.0.0
+    container_name: file-cloud-hub
+    ports:
+      - "5000:5000"
+    volumes:
+      # Persistent storage for uploaded files
+      - file_cloud_uploads:/app/uploads
+      # Persistent storage for database
+      - file_cloud_database:/app/instance
+    environment:
+      - FLASK_ENV=production
+      - FLASK_DEBUG=0
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:5000', timeout=10)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+# Named volumes for data persistence
+volumes:
+  file_cloud_uploads:
+    driver: local
+  file_cloud_database:
+    driver: local
+
+# Ready to use! Your image is: balakrishnas7/file-cloud:v1.0.0
+# Usage:
+# 1. Run: docker-compose -f docker-compose.hub.yml up -d
+# 2. Access your application at http://localhost:5000
